@@ -1,23 +1,16 @@
+# we need ssh for remote acces and aptitude for libgtk2.0 isntallation
+sudo apt-get install --yes openjdk-7-jdk ssh gtk2.0-dev build-essential aptitude gfortran cmake
+
 # isntall java 
 # http://www.mkyong.com/java/how-to-install-java-jdk-on-ubuntu-linux/
-sudo apt-get install openjdk-7-jdk
 java -version     # check installation
 echo $JAVA_HOME   # is empty
 JAVA_HOME_ADD="/usr/lib/jvm/java-7-openjdk-amd64"   # set temp path for JAVA_HOME
-if [[ -z "$(grep "$JAVA_HOME_ADD" ~/.profile)" ]] ; then \
-    printf "\n# Add "$JAVA_HOME_ADD" to your JAVA_HOME\nexport JAVA_HOME=\"$JAVA_HOME_ADD:\$JAVA_HOME\" \n" >> ~/.profile
-    fi
+if [[ -z "$(touch ~/.bash_profile && grep "$JAVA_HOME_ADD" ~/.bash_profile)" ]] ; then \
+  printf "\n# Add "$JAVA_HOME_ADD" to your JAVA_HOME\nexport JAVA_HOME=\"$JAVA_HOME_ADD:\$JAVA_HOME\" \n" >> ~/.bash_profile
+fi
 
-# ubuntu installatie cellprofiler
-mkdir -p ~/git && cd ~/git
-git clone https://github.com/CellProfiler/CellProfiler.git || \
-cd CellProfiler && git pull https://github.com/CellProfiler/CellProfiler.git
 
-# on host you can add commit and push the changes to the client
-git add . && git commit -m "slideToolkit makefile in progress" && git push
-
-# we need ssh for remote acces and aptitude for libgtk2.0 isntallation
-sudo apt-get install ssh gtk2.0-dev build-essential aptitude
 
 # set locals
 sudo locale-gen en_US en_US.UTF-8
@@ -27,11 +20,22 @@ export LC_ALL=en_US.UTF-8
 sudo locale-gen en_US.UTF-8
 sudo dpkg-reconfigure locales
 
-# the Makefile suggests the following
-sudo aptitude install libgtk2.0-dev
 
 # Export HOSTTYPE (not shure if this is needed)
 echo $HOSTTYPE && export HOSTTYPE
+if [[ -z "$(touch ~/.bash_profile && grep "export \$HOSTTYPE" ~/.bash_profile)" ]] ; then \
+  printf "\n# Export HOSTTYPE to your enviroment\nexport \$HOSTTYPE \n" >> ~/.bash_profile
+fi
+
+# ubuntu installatie cellprofiler
+mkdir -p ~/git && cd ~/git
+git clone https://github.com/CellProfiler/CellProfiler.git || \
+cd CellProfiler && git pull https://github.com/CellProfiler/CellProfiler.git
+
+# on host you can add commit and push the changes to the client
+git add . && git commit -m "slideToolkit makefile in progress" && git push
+
+
 
 # After installation, you need to run the following every time
 # you want to start CellProfiler (or place it in your SHELL
