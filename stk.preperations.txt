@@ -1,0 +1,36 @@
+# ubuntu installatie cellprofiler
+mkdir -p ~/git && cd ~/git
+git clone https://github.com/CellProfiler/CellProfiler.git || \
+cd CellProfiler && git pull https://github.com/CellProfiler/CellProfiler.git
+
+# on host you can add commit and push the changes to the client
+git add . && git commit -m "slideToolkit makefile in progress" && git push
+
+# we need ssh for remote acces and aptitude for libgtk2.0 isntallation
+sudo apt-get install ssh gtk2.0-dev build-essential aptitude
+
+# set locals
+sudo locale-gen en_US en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+sudo locale-gen en_US.UTF-8
+sudo dpkg-reconfigure locales
+
+# the Makefile suggests the following
+sudo aptitude install libgtk2.0-dev
+
+
+
+# After installation, you need to run the following every time
+# you want to start CellProfiler (or place it in your SHELL
+# startup scripts, i.e. ~/.bashrc for bash):
+#   CP2DEST="$HOME/usr/CellProfiler2"
+#   export PATH="${CP2DEST}/bin:${PATH}"
+#   export LD_LIBRARY_PATH="${CP2DEST}/lib:${CP2DEST}/lib64:${LD_LIBRARY_PATH}":${CP2DEST}/lib/mysql
+#   export PYTHONPATH="${CP2DEST}/lib/python2.5/site-packages:${PYTHONPATH}"
+#   export JAVA_HOME="<your path to JDK or JRE>"
+#
+# To run CellProfiler:
+#   cd ${CP2DEST}
+#   python CellProfiler.py -b
