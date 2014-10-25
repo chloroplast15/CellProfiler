@@ -41,6 +41,9 @@ PREFIX			?= $(HOME)/usr/CellProfiler2
 SRCDIR			?= $(PWD)
 TMPDIR			?= $(PWD)/tmp
 
+# Preset variables for Ubuntu 12.04
+HOSTTYPE
+
 # Set DISABLE_PRECHECKS to "YES" (case sensitive!) to explicitly
 # disable prechecks. Disabling is not recommended. It may lead
 # to failed builds because of missing/wrong dependencies.

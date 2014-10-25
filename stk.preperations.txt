@@ -30,7 +30,8 @@ sudo dpkg-reconfigure locales
 # the Makefile suggests the following
 sudo aptitude install libgtk2.0-dev
 
-
+# Export HOSTTYPE (not shure if this is needed)
+echo $HOSTTYPE && export HOSTTYPE
 
 # After installation, you need to run the following every time
 # you want to start CellProfiler (or place it in your SHELL
