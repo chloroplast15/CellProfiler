@@ -1,5 +1,5 @@
 # we need ssh for remote acces and aptitude for libgtk2.0 isntallation
-sudo apt-get install --yes openjdk-7-jdk ssh gtk2.0-dev build-essential aptitude gfortran cmake freeglut3 freeglut3-dev libglew1.5-dev libglm-dev
+sudo apt-get install --yes openjdk-7-jdk ssh gtk2.0-dev build-essential aptitude gfortran cmake freeglut3 mesa-common-dev freeglut3-dev libglew1.5-dev libglm-dev python-wxgtk2.8
 
 # isntall java 
 # http://www.mkyong.com/java/how-to-install-java-jdk-on-ubuntu-linux/
@@ -9,8 +9,6 @@ JAVA_HOME_ADD="/usr/lib/jvm/java-7-openjdk-amd64"   # set temp path for JAVA_HOM
 if [[ -z "$(touch ~/.bash_profile && grep "$JAVA_HOME_ADD" ~/.bash_profile)" ]] ; then \
   printf "\n# Add "$JAVA_HOME_ADD" to your JAVA_HOME\nexport JAVA_HOME=\"$JAVA_HOME_ADD:\$JAVA_HOME\" \n" >> ~/.bash_profile
 fi
-
-
 
 # set locals
 export LANGUAGE=en_US.UTF-8
