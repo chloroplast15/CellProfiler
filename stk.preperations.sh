@@ -1,3 +1,8 @@
+# ubuntu installatie cellprofiler
+mkdir -p ~/git && cd ~/git
+git clone https://github.com/CellProfiler/CellProfiler.git || \
+cd CellProfiler && git pull https://github.com/CellProfiler/CellProfiler.git
+
 # we need ssh for remote acces and aptitude for libgtk2.0 isntallation
 sudo apt-get install ssh build-essential aptitude
 
@@ -12,10 +17,3 @@ sudo dpkg-reconfigure locales
 # the Makefile suggests the following
 sudo aptitude install libgtk2.0-dev
 
-# ubuntu installatie cellprofiler
-mkdir -p ~/git && cd ~/git
-git clone https://github.com/CellProfiler/CellProfiler.git || \
-cd CellProfiler && git pull https://github.com/CellProfiler/CellProfiler.git
-  
-# hosted packages http://cellprofiler.org/linked_files/CPPackageHost/
-# sudo apt-get install default-jre default-jdk
