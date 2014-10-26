@@ -1,6 +1,5 @@
 # we need ssh for remote acces and aptitude for libgtk2.0 isntallation
-sudo apt-get install --yes openjdk-7-jdk ssh gtk2.0-dev build-essential aptitude gfortran cmake freeglut3 mesa-common-dev freeglut3-dev libglew1.5-dev libglm-dev python-wxgtk2.8
-
+sudo apt-get install --yes openjdk-7-jdk ssh gtk2.0-dev build-essential aptitude gfortran cmake freeglut3 mesa-common-dev freeglut3-dev libglew1.5-dev libglm-dev python-wxgtk2.8 subversion zlib1g-dev libncurses5-dev
 # isntall java 
 # http://www.mkyong.com/java/how-to-install-java-jdk-on-ubuntu-linux/
 java -version     # check installation
