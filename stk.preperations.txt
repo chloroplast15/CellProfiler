@@ -14,6 +14,9 @@ JAVA_HOME_ADD="/usr/lib/jvm/java-7-openjdk-amd64"   # set temp path for JAVA_HOM
 if [[ -z "$(touch ~/.bash_profile && grep "$JAVA_HOME_ADD" ~/.bash_profile)" ]] ; then \
   printf "\n# Add "$JAVA_HOME_ADD" to your JAVA_HOME\nexport JAVA_HOME=\"$JAVA_HOME_ADD:\$JAVA_HOME\" \n" >> ~/.bash_profile
 fi
+source ~/.bash_profiler  # add to enviroment, however, Ubuntu need a reboot
+echo $JAVA_HOME   # is empty
+
 
 # set locals
 export LANGUAGE=en_US.UTF-8
