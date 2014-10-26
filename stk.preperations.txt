@@ -9,6 +9,8 @@ JAVA_HOME_ADD="/usr/lib/jvm/java-7-openjdk-amd64"   # set temp path for JAVA_HOM
 if [[ -z "$(touch ~/.bash_profile && grep "$JAVA_HOME_ADD" ~/.profile)" ]] ; then \
   printf "\n# Add "$JAVA_HOME_ADD" to your JAVA_HOME\nexport JAVA_HOME=\"$JAVA_HOME_ADD:\$JAVA_HOME\" \n" >> ~/.profile
 fi
+source ~/.profile
+echo $JAVA_HOME   # /usr/lib/jvm/java-7-openjdk-amd64 or similar
 
 # set locals
 export LANGUAGE=en_US.UTF-8
